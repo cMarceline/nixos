@@ -14,12 +14,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelParams = [ "amd_iommu=on" ]
-  
-  # Virtualisation Enable
-  hardware.opengl.enable = true;
-  virtualisation.spiceUSBRedirection.enable = true;
-
+  boot.kernelParams = [ "amd_iommu=on" ];
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
