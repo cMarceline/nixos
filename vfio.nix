@@ -1,8 +1,8 @@
 let
   # RTX 3070 Ti
   gpuIDs = [
-    "10de:2482" # Graphics
-    "10de:228b" # Audio
+    "10de:2503" # Graphics
+    "10de:228e" # Audio
   ];
 in { pkgs, lib, config, ... }: {
   options.vfio.enable = with lib;
