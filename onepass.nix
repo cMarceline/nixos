@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 { config, lib, pkgs, ... }:
 {
   # Enable the unfree 1Password packages
@@ -17,6 +16,3 @@
     polkitPolicyOwners = [ "mitchcollins12@gmail.com" ];
   };
 }
-=======
-
->>>>>>> 219aef5e176342a5d523a90fec4850b68eac79f9

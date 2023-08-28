@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 { config, pkgs, lib, ... }:
 
 with lib;
@@ -60,6 +59,3 @@ in {
 
   meta.maintainers = with maintainers; [ babbaj ];
 }
-=======
-
->>>>>>> 219aef5e176342a5d523a90fec4850b68eac79f9
