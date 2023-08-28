@@ -4,11 +4,9 @@
 # And for the past 10 years
 { config, pkgs, lib, ... }:{
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./device.nix
-     # ./vfio.nix
       ./onepass.nix
-     # ./looking-glass.nix
     ];
 
   # options.vfio.enable = with lib; mkEnableOption;
