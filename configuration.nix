@@ -5,10 +5,10 @@
 { config, pkgs, lib, ... }:{
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./vfio.nix
+      ./device.nix
+     # ./vfio.nix
       ./onepass.nix
-      ./looking-glass.nix
+     # ./looking-glass.nix
     ];
 
   # options.vfio.enable = with lib; mkEnableOption;
