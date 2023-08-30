@@ -93,7 +93,7 @@
       vivaldi
       ungoogled-chromium
     # sysSet
-      arandr
+      autorandr
       protonvpn-gui
     # messaging
       whatsapp-for-linux
@@ -146,7 +146,6 @@
   # };
 
   # List services that you want to enable:
-
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
