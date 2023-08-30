@@ -121,6 +121,7 @@
      qjackctl
      neofetch
      git
+     libsecret
      pciutils
      hwloc
   #  media
