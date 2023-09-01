@@ -7,7 +7,8 @@
     [
       ./device.nix
       ./onepass.nix
-      ./hyprland.nix
+      #./hyprland.nix
+      ./gnome.nix
     ];
 
   # options.vfio.enable = with lib; mkEnableOption;
@@ -55,6 +56,7 @@
   #services.xserver.displayManager.gdm.enable = true;
   #services.xserver.desktopManager.gnome.enable = true;
 
+  # Enable the Hyprland Window Manager
   #programs.waybar.enable = true;
   #programs.hyprland.enable = true;
 
