@@ -7,6 +7,7 @@
     [
       ./device.nix
       ./onepass.nix
+      ./hyprland.nix
     ];
 
   # options.vfio.enable = with lib; mkEnableOption;
@@ -18,7 +19,6 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   services.fwupd.enable = true;
-
 
   # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -54,7 +54,9 @@
   # Enable the GNOME Desktop Environment.
   #services.xserver.displayManager.gdm.enable = true;
   #services.xserver.desktopManager.gnome.enable = true;
-  programs.hyprland.enable = true;
+
+  #programs.waybar.enable = true;
+  #programs.hyprland.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -119,9 +121,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+  #  WM
+     #hyprland
+     #kitty
+     #waybar
   #  syset
+     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      qjackctl
      neofetch
      git
