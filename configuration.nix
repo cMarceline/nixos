@@ -144,6 +144,7 @@
      # pkgs.looking-glass-client
      virtmanager
      waydroid
+     zita-njbridge
   ];
 
   virtualisation.waydroid.enable = true;
