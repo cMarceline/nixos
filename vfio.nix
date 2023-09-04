@@ -26,15 +26,17 @@
   ];
 
 
-  services.persistent-evdev.enable = true;
-  services.persistent-evdev.devices = {
-    persist-mouse0 = "/dev/input/by-path/usb-Logitech_USB_Receiver-if02-mouse";
-    persist-mouse1 = "/dev/input/by-path/usb-Logitech_USB_Receiver-if02-event-mouse";
-    persist-mouse2 = "/dev/input/by-path/usb-Keychron_Keychron_C1-if01-mouse";
-    persist-mouse3 = "/dev/input/by-path/usb-Keychron_Keychron_C1-if01-event-mouse";
-    persist-keyboard0 = "/dev/input/by-path/usb-Keychron_Keychron_C1-event-kbd";
-  };
-
+#  services.persistent-evdev.enable = true;
+#  services.persistent-evdev = {
+#    cache = "/opt/persistent-evdev/cache"
+#    devices = {
+#      persist-mouse0 = "/dev/input/by-path/usb-Logitech_USB_Receiver-if02-mouse";
+#      persist-mouse1 = "/dev/input/by-path/usb-Logitech_USB_Receiver-if02-event-mouse";
+#      persist-mouse2 = "/dev/input/by-path/usb-Keychron_Keychron_C1-if01-mouse";
+#      persist-mouse3 = "/dev/input/by-path/usb-Keychron_Keychron_C1-if01-event-mouse";
+#      persist-keyboard0 = "/dev/input/by-path/usb-Keychron_Keychron_C1-event-kbd";
+#    };
+#  };
   virtualisation.libvirtd.qemu.verbatimConfig = ''
     cgroup_device_acl = [
       "/dev/null", "/dev/full", "/dev/zero", 
@@ -64,4 +66,9 @@
     onBoot = "ignore";
     onShutdown = "shutdown";
   };
+  
+#  environment.systemPackages = [
+#    pkgs.persistent-evdev
+#  ];
+
 }
