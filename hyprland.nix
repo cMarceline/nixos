@@ -7,7 +7,7 @@
     hyprland
     kitty
     waybar
-    hyprpaper
+    eww
   ];
 
 }

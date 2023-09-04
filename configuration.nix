@@ -7,8 +7,8 @@
     [
       ./device.nix
       ./onepass.nix
-      #./hyprland.nix
-      ./gnome.nix
+      ./hyprland.nix
+      #./gnome.nix
     ];
 
   # options.vfio.enable = with lib; mkEnableOption;
