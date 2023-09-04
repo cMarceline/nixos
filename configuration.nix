@@ -136,6 +136,8 @@
      libsecret
      pciutils
      hwloc
+     jack2
+     zita-njbridge
   #  media
      vlc
   #  browser
@@ -144,7 +146,6 @@
      # pkgs.looking-glass-client
      virtmanager
      waydroid
-     zita-njbridge
   ];
 
   virtualisation.waydroid.enable = true;
