@@ -141,6 +141,9 @@
      libsecret
      pciutils
      hwloc
+     jack2
+     zita-njbridge
+     pulseaudioFull
   #  media
      vlc
   #  browser
