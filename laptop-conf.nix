@@ -20,4 +20,15 @@
     libvdpau-va-gl
     intel-media-driver
   ];
+
+  services.xserver.desktopManager.gnome = {
+    enable = true;
+    extraGSettingsOverridePackages = [ pkgs.gnome.mutter ];  
+    extraGSettingsOverrides = ''
+      [org.gnome.mutter]
+      experimental-features=['scale-monitor-framebuffer']
+    '';
+  };
+
+  services.xserver.desktopManager.plasma5.useQtScaling = true;
 }

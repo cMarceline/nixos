@@ -7,8 +7,10 @@
     [
       ./device.nix
       ./onepass.nix
-      ./hyprland.nix
-      #./gnome.nix
+      #./hyprland.nix
+      ./gnome.nix
+      ./home.nix
+      <home-manager/nixos>
     ];
 
   # options.vfio.enable = with lib; mkEnableOption;
@@ -102,9 +104,11 @@
     # sysSet
       autorandr
       protonvpn-gui
+      #pkgs.geogebra
     # messaging
       whatsapp-for-linux
       discord
+      pkgs.discord-canary
     # media
       spotify
       qbittorrent
@@ -133,6 +137,7 @@
      jackmix
      neofetch
      git
+     pkgs.git-lfs
      libsecret
      pciutils
      hwloc
