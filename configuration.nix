@@ -9,12 +9,9 @@
       ./onepass.nix
       #./hyprland.nix
       ./gnome.nix
-<<<<<<< HEAD
       #./remoteDisplay.nix
-=======
-      ./home.nix
-      <home-manager/nixos>
->>>>>>> 6ae09bfab13e305275b40a2784300e8940852cab
+      #./home.nix
+      #<home-manager/nixos>
     ];
 
   # options.vfio.enable = with lib; mkEnableOption;
@@ -111,15 +108,11 @@
       #pkgs.geogebra
     # messaging
       whatsapp-for-linux
-<<<<<<< HEAD
       (pkgs.discord.override {
         # remove any overrides that you don't want
         withOpenASAR = true;
         withVencord = true;
       })
-=======
-      discord
->>>>>>> 6ae09bfab13e305275b40a2784300e8940852cab
       pkgs.discord-canary
     # media
       spotify
@@ -164,6 +157,7 @@
      # pkgs.looking-glass-client
      virtmanager
      waydroid
+     chiaki
   ];
 
   virtualisation.waydroid.enable = true;
