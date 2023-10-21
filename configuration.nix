@@ -10,8 +10,8 @@
       #./hyprland.nix
       ./gnome.nix
       #./remoteDisplay.nix
-      ./home.nix
-      <home-manager/nixos>
+      #./home.nix
+      #<home-manager/nixos>
     ];
 
   # options.vfio.enable = with lib; mkEnableOption;
@@ -157,6 +157,7 @@
      # pkgs.looking-glass-client
      virtmanager
      waydroid
+     chiaki
   ];
 
   virtualisation.waydroid.enable = true;
