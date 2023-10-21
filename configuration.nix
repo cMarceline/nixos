@@ -9,6 +9,7 @@
       ./onepass.nix
       #./hyprland.nix
       ./gnome.nix
+      #./remoteDisplay.nix
     ];
 
   # options.vfio.enable = with lib; mkEnableOption;
@@ -104,7 +105,12 @@
       protonvpn-gui
     # messaging
       whatsapp-for-linux
-      discord
+      (pkgs.discord.override {
+        # remove any overrides that you don't want
+        withOpenASAR = true;
+        withVencord = true;
+      })
+      pkgs.discord-canary
     # media
       spotify
       qbittorrent
