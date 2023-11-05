@@ -102,6 +102,7 @@
       thunderbird
       vivaldi
       ungoogled-chromium
+      libreoffice
     # sysSet
       autorandr
       protonvpn-gui
