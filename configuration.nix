@@ -5,13 +5,12 @@
 { config, pkgs, lib, ... }:{
   imports =
     [
-      ./device.nix
+      ./device/device.nix
+      ./dewm/dewm.nix
       ./onepass.nix
-      #./hyprland.nix
-      ./gnome.nix
-      #./remoteDisplay.nix
       #./home.nix
       #<home-manager/nixos>
+      ./hardware-configuration.nix
     ];
 
   # options.vfio.enable = with lib; mkEnableOption;
