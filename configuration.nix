@@ -5,13 +5,12 @@
 { config, pkgs, lib, ... }:{
   imports =
     [
-      ./device.nix
+      ./device/device.nix
+      ./dewm/dewm.nix
       ./onepass.nix
-      #./hyprland.nix
-      ./gnome.nix
-      #./remoteDisplay.nix
       #./home.nix
       #<home-manager/nixos>
+      ./hardware-configuration.nix
     ];
 
   # options.vfio.enable = with lib; mkEnableOption;
@@ -102,6 +101,7 @@
       thunderbird
       vivaldi
       ungoogled-chromium
+      libreoffice
     # sysSet
       autorandr
       protonvpn-gui
@@ -159,6 +159,14 @@
      waydroid
      chiaki
   ];
+
+  #appimageTools.wrapType2 = { # or wrapType1
+  #  name = "Obsidian2";
+  #  src = fetchurl {
+  #    url = "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.4.16/Obsidian-1.4.16.AppImage";
+  #  };
+  #  extraPkgs = pkgs: with pkgs; [ ];
+  #};
 
   virtualisation.waydroid.enable = true;
 

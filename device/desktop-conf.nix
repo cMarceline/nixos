@@ -3,6 +3,6 @@
     [
       ./vfio.nix
       ./looking-glass.nix
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
     ];
 }
