@@ -9,7 +9,6 @@
       ./dewm/dewm.nix
       ./onepass.nix
       #./home.nix
-      #<home-manager/nixos>
       ./hardware-configuration.nix
     ];
 
@@ -128,7 +127,10 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-24.8.6"
+    "zotero-6.0.26"
+  ];
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
