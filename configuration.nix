@@ -8,7 +8,7 @@
       ./device/device.nix
       ./dewm/dewm.nix
       ./onepass.nix
-      #./home.nix
+      ./home.nix
       ./hardware-configuration.nix
     ];
 
@@ -102,7 +102,6 @@
       ungoogled-chromium
       libreoffice
     # sysSet
-      autorandr
       protonvpn-gui
       #pkgs.geogebra
     # messaging
