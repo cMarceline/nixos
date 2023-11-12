@@ -133,6 +133,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+     hyprland
+     kitty
   #  syset
      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      qjackctl
@@ -153,7 +155,7 @@
      # pkgs.looking-glass-client
      virtmanager
      waydroid
-     helix.packages."${pkgs.system}".helix 
+     #helix.packages."${pkgs.system}".helix 
   ];
 
   #appimageTools.wrapType2 = { # or wrapType1
@@ -191,5 +193,27 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
-
+  
+  services.xserver.displayManager.gdm.enable = true;
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+    nvidiaPatches = true;
+  };
+  #xdg.portal.enable = true;
+  #xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  environment.sessionVariables = {
+    # Hint electron apps to use wayland
+    NIXOS_OZONE_WL = "1";
+  };
+  #home-manager.users.marci = {
+  #  home.packages = [
+  #    pkgs.wayland
+  #    pkgs.hyprland
+  #    pkgs.wofi
+  #    pkgs.swww
+  #    pkgs.dunst
+  #    pkgs.kitty
+  #  ];
+  #};
 }
