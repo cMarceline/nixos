@@ -5,11 +5,11 @@
 { config, pkgs, lib, ... }:{
   imports =
     [
-      #/etc/nixos/device/device.nix
-      #/etc/nixos/dewm/dewm.nix
-      #/etc/nixos/onepass.nix
-      #/etc/nixos/home.nix
-      #/etc/nixos/hardware-configuration.nix
+      /etc/nixos/device/device.nix
+      /etc/nixos/dewm/dewm.nix
+      /etc/nixos/onepass.nix
+      /etc/nixos/home.nix
+      /etc/nixos/hardware-configuration.nix
     ];
 
   # options.vfio.enable = with lib; mkEnableOption;
@@ -153,7 +153,7 @@
      # pkgs.looking-glass-client
      virtmanager
      waydroid
-     helix.packages."${pkgs.system}".helix 
+     #helix.packages."${pkgs.system}".helix 
   ];
 
   #appimageTools.wrapType2 = { # or wrapType1
