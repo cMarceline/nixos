@@ -1,7 +1,8 @@
 { config, pkgs, lib, ... }:{
   imports = [
-    ./hypr/hypr.nix
+    #./hypr/hypr.nix
   ];
+  services.xserver.displayManager.gdm.enable = true;
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -17,9 +18,6 @@
     opengl.enable = true;
     #nvidia.modesetting.enable = true;
   };
-  programs.bash.loginShellInit = ''
-    dbus-run-session Hyprland
-  '';
   environment.systemPackages = with pkgs; [
     hyprland
     kitty

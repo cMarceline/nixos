@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:{
   imports =
     [
-      ./gnome.nix
-      #./hyprland.nix
+      #./gnome.nix
+      ./hyprland.nix
     ];
 }
