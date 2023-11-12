@@ -1,8 +1,8 @@
 { config, pkgs, lib, ...}:{
   imports =
     [
-      ./vfio.nix
-      ./looking-glass.nix
+      /etc/nixos/device/vfio.nix
+      /etc/nixos/device/looking-glass.nix
       /etc/nixos/hardware-configuration.nix
     ];
 }

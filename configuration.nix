@@ -5,11 +5,11 @@
 { config, pkgs, lib, ... }:{
   imports =
     [
-      ./device/device.nix
-      ./dewm/dewm.nix
-      ./onepass.nix
-      ./home.nix
-      ./hardware-configuration.nix
+      /etc/nixos/device/device.nix
+      /etc/nixos/dewm/dewm.nix
+      /etc/nixos/onepass.nix
+      #/etc/nixos/home.nix
+      /etc/nixos/hardware-configuration.nix
     ];
 
   # options.vfio.enable = with lib; mkEnableOption;
@@ -133,10 +133,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  WM
-     #hyprland
-     #kitty
-     #waybar
   #  syset
      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      qjackctl
@@ -148,7 +144,6 @@
      pciutils
      hwloc
      jack2
-     zita-njbridge
      pulseaudioFull
   #  media
      vlc
@@ -158,7 +153,7 @@
      # pkgs.looking-glass-client
      virtmanager
      waydroid
-     chiaki
+     helix.packages."${pkgs.system}".helix 
   ];
 
   #appimageTools.wrapType2 = { # or wrapType1
