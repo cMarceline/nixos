@@ -1,8 +1,11 @@
-{ config, pkgs, lib, ...}:{
+{ config, pkgs, lib, ... }:{
+  imports = [
+    ./hypr/hypr.nix
+  ];
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-    #nvidiaPatches = true;
+    nvidiaPatches = true;
   };
   #xdg.portal.enable = true;
   #xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
@@ -14,16 +17,13 @@
     opengl.enable = true;
     #nvidia.modesetting.enable = true;
   };
-
-  imports = [
-    <home-manager/modules/services/window-managers/hyprland.nix>
-  ];
-
+  programs.bash.loginShellInit = ''
+    dbus-run-session Hyprland
+  '';
   environment.systemPackages = with pkgs; [
     hyprland
     kitty
   ];
-
   home-manager.users.marci = {
     home.packages = [
       pkgs.wayland
@@ -33,16 +33,5 @@
       pkgs.dunst
       pkgs.kitty
     ];
-    wayland.windowManager.hyprland.extraconfig = ''
-      
-    '';
-    
-    programs = {
-      wofi = {
-        enable = true;
-        #settings = {};
-        #style = "";
-      };
-    };
   };
 }
