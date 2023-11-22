@@ -69,7 +69,10 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
+  
+  # Enabling Utsushi for Printing
+  hardware.sane = { enable = true; extraBackends = [ pkgs.utsushi ]; }; services.udev.packages = [ pkgs.utsushi ];
+  
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
