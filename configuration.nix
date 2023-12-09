@@ -207,7 +207,7 @@
   #xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   environment.sessionVariables = {
     # Hint electron apps to use wayland
-    NIXOS_OZONE_WL = "1";
+    #NIXOS_OZONE_WL = "1";
   };
   #home-manager.users.marci = {
   #  home.packages = [
