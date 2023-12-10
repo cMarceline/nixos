@@ -35,15 +35,9 @@
 
   systemd.tmpfiles.rules = [
     "f /dev/shm/looking-glass 0660 marci qemu-libvirtd -"
-    "f /dev/input/by-id/usb-Logitech_USB_Receiver-if02-mouse 0660 marci qemu-libvirtd -"
+    "f /dev/input/by-id/usb-05d5_KEYBOARD-event-if01 0660 marci qemu-libvirtd -"
+    "f /dev/input/by-id/usb-05d5_KEYBOARD-event-kbd 0660 marci qemu-wlibvirtd -"
     "f /dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse 0660 marci qemu-wlibvirtd -"
-    "f /dev/input/by-id/usb-Keychron_Keychron_C1-if01-mouse 0660 marci qemu-libvirtd -"
-    "f /dev/input/by-id/usb-Keychron_Keychron_C1-if01-event-mouse 0660 marci qemu-libvirtd -"
-    "f /dev/input/by-id/usb-Keychron_Keychron_C1-event-kbd 0660 marci qemu-libvirtd -"
-    "f /dev/input/by-path/pci-0000:09:00.3-usb-0:4:1.2-event-mouse 0660 marci qemu-libvirtd -"
-    "f /dev/input/by-path/pci-0000:09:00.3-usb-0:3:1.0-event-kbd 0660 marci qemu-libvirtd -"
-    "f /dev/input/by-path/pci-0000:09:00.3-usb-0:4:1.2-mouse 0660 marci qemu-libvirtd -"
-    "f /dev/input/by-path/pci-0000:09:00.3-usb-0:3:1.1-event-mouse 0660 marci qemu-libvirtd -"
   ];
 
   virtualisation = {
@@ -55,13 +49,17 @@
       onBoot = "ignore";
       onShutdown = "shutdown";
       
-      #deviceACL = [
-      #  "/dev/input/by-path/uinput-usb-Keychron_Keychron_C1-event-kbd"
-      #  "/dev/input/by-path/uinput-usb-Keychron_Keychron_C1-if01-event-mouse"
-      #  "/dev/input/by-path/uinput-usb-Keychron_Keychron_C1-if01-mouse"
-      #  "/dev/input/by-path/uinput-usb-Logitech_USB_Receiver-if02-event-mouse"
-      #  "/dev/input/by-path/uinput-usb-Logitech_USB_Receiver-if02-mouse"
-      #];
+      qemu.verbatimConfig = ''
+        cgroup_device_acl = [
+          "/dev/null", "/dev/full", "/dev/zero", 
+          "/dev/random", "/dev/urandom",
+          "/dev/ptmx", "/dev/kvm", "/dev/kqemu",
+          "/dev/rtc","/dev/hpet",
+          "/dev/input/by-id/usb-05d5_KEYBOARD-event-if01",
+          "/dev/input/by-id/usb-05d5_KEYBOARD-event-kbd",
+          "/dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse"
+        ]
+      '';
     };
   };
 }
