@@ -75,7 +75,10 @@ in
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
+  
+  # Enabling Utsushi for Printing
+  hardware.sane = { enable = true; extraBackends = [ pkgs.utsushi ]; }; services.udev.packages = [ pkgs.utsushi ];
+  
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -217,18 +220,4 @@ in
   };
   #xdg.portal.enable = true;
   #xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  environment.sessionVariables = {
-    # Hint electron apps to use wayland
-    #NIXOS_OZONE_WL = "0";
-  };
-  #home-manager.users.marci = {
-  #  home.packages = [
-  #    pkgs.wayland
-  #    pkgs.hyprland
-  #    pkgs.wofi
-  #    pkgs.swww
-  #    pkgs.dunst
-  #    pkgs.kitty
-  #  ];
-  #};
 }
