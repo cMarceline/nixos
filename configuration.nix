@@ -3,19 +3,14 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 # And for the past 10 years
 { config, pkgs, lib, ... }:
-let
-  unstableTarball =
-    fetchTarball
-      https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
-in
 {
   imports =
     [
-      /etc/nixos/device/device.nix
-      /etc/nixos/dewm/dewm.nix
-      /etc/nixos/onepass.nix
+      #/etc/nixos/device/device.nix
+      #/etc/nixos/dewm/dewm.nix
+      #/etc/nixos/onepass.nix
       #/etc/nixos/home.nix
-      /etc/nixos/hardware-configuration.nix
+      #/etc/nixos/hardware-configuration.nix
     ];
 
   # options.vfio.enable = with lib; mkEnableOption;
