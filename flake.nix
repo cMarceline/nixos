@@ -14,9 +14,31 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
-          ./desktop-hardconf.nix
+          ./desktopHardConf.nix
           ./looking-glass.nix
           ./vfio.nix
+          ./onepass.nix
+          ./gnome.nix
+
+          # home manager module
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+
+            # TODO replace ryan with your own username
+            home-manager.users.marci = import ./home.nix;
+
+            # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
+          }
+        ];
+      };
+      "frameNix" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./configuration.nix
+          ./laptopSoftConf.nix
+          ./laptopHardConf.nix
           ./onepass.nix
           ./gnome.nix
 
