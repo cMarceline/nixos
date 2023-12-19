@@ -132,7 +132,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
-    "electron-24.8.6"
+    "electron-25.9.0"
     "zotero-6.0.26"
   ];
   # Allow Unstable Packages
@@ -166,7 +166,7 @@
      firefox
   #  virtualisation
      # pkgs.looking-glass-client
-     virtmanager
+     virt-manager
      waydroid
      #helix.packages."${pkgs.system}".helix 
   ];

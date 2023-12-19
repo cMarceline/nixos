@@ -20,7 +20,7 @@
   environment.systemPackages = [
      pkgs.persistent-evdev
      pkgs.looking-glass-client
-     pkgs.haskellPackages.evdev
+     #pkgs.haskellPackages.evdev
      pkgs.libvirt
      pkgs.qemu
   ];
