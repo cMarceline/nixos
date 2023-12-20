@@ -22,7 +22,6 @@
   ];
 
   services.xserver.desktopManager.gnome = {
-    enable = true;
     extraGSettingsOverridePackages = [ pkgs.gnome.mutter ];  
     extraGSettingsOverrides = ''
       [org.gnome.mutter]

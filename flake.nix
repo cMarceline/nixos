@@ -2,12 +2,13 @@
   description = "A very basic flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, hyprland, ... }@inputs: {
 
     nixosConfigurations = {
       "nixos" = nixpkgs.lib.nixosSystem {
@@ -33,6 +34,7 @@
           }
         ];
       };
+
       "frameNix" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
@@ -40,21 +42,33 @@
           ./laptopSoftConf.nix
           ./laptopHardConf.nix
           ./onepass.nix
-          ./gnome.nix
+          ./hyprland.nix
 
           # home manager module
+          #hyprland.homeManagerModules.default    
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
-            # TODO replace ryan with your own username
             home-manager.users.marci = import ./home.nix;
 
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
           }
         ];
       };
+
+      #homeConfigurations."marci@nixos" = home-manager.lib.homeManagerConfiguration {
+      #  pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      #
+      #  modules = [
+      #    hyprland.homeManagerModules.default
+      #    {wayland.windowManager.hyprland.enable = true;}
+      #    # ...
+      #  ];
+      #};
+
     };
   };
 }
+	

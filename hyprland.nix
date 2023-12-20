@@ -2,12 +2,19 @@
   imports = [
     #./hypr/hypr.nix
   ];
-  #services.xserver.displayManager.gdm.enable = true;
+
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-    nvidiaPatches = true;
   };
+
+  services.xserver.desktopManager.gnome.enable = false;
+  services.xserver.displayManager.defaultSession = "hyprland";
+  services.xserver.displayManager.gdm = {
+    enable = true;
+    wayland = true;
+  };
+  
   #xdg.portal.enable = true;
   #xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   environment.sessionVariables = {
@@ -18,18 +25,10 @@
     opengl.enable = true;
     #nvidia.modesetting.enable = true;
   };
+
   environment.systemPackages = with pkgs; [
     hyprland
     kitty
+    pkgs.libsForQt5.dolphin
   ];
-  home-manager.users.marci = {
-    home.packages = [
-      pkgs.wayland
-      pkgs.hyprland
-      pkgs.wofi
-      pkgs.swww
-      pkgs.dunst
-      pkgs.kitty
-    ];
-  };
 }
