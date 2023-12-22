@@ -24,7 +24,6 @@
     #pkgs.hyprland
     #pkgs.waybar
     pkgs.wofi
-    pkgs.swww
     pkgs.dunst
     pkgs.kitty
   ];
