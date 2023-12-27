@@ -6,9 +6,10 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     hyprland.url = "github:hyprwm/Hyprland";
+    nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, hyprland, nur, ... }@inputs: {
 
     nixosConfigurations = {
       "nixos" = nixpkgs.lib.nixosSystem {
@@ -32,6 +33,10 @@
 
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
           }
+          # nur
+          nur.nixosModules.nur
+           # This adds a nur configuration option.
+           # Use `config.nur` for packages
         ];
       };
 

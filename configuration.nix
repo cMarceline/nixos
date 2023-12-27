@@ -109,6 +109,7 @@
       libreoffice
     # sysSet
       protonvpn-gui
+      #config.nur.repos.emmanuelrosa.bisq-desktop
       #pkgs.geogebra
     # messaging
       whatsapp-for-linux
@@ -131,6 +132,11 @@
     ];
   };
 
+  services.mullvad-vpn = {
+    enable = true;
+    package = pkgs.mullvad-vpn;
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
@@ -138,13 +144,16 @@
     "zotero-6.0.26"
   ];
   # Allow Unstable Packages
-  nixpkgs.config = {
-    packageOverrides = pkgs: with pkgs; {
-      unstable = import unstableTarball {
-        config = config.nixpkgs.config;
-      };
-    };
-  };
+  #nixpkgs.config = {
+  #  packageOverrides = pkgs: with pkgs; {
+  #    unstable = import unstableTarball {
+  #      config = config.nixpkgs.config;
+  #    };
+  #    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+  #      inherit pkgs;
+  #    };
+  #  };
+  #};
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
