@@ -92,10 +92,25 @@
     #media-session.enable = true;
   };
   # Enable Bluetooth (w/o Gnome)
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller
   services.blueman.enable = true;
+
+  systemd.user.services.mpris-proxy = {
+    description = "Mpris proxy";
+    after = [ "network.target" "sound.target" ];
+    wantedBy = [ "default.target" ];
+    serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
+
+  fonts.packages = with pkgs; [
+    nerdfonts  
+    fira-mono
+  ];
+
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.marci = {
@@ -143,17 +158,7 @@
     "electron-25.9.0"
     "zotero-6.0.26"
   ];
-  # Allow Unstable Packages
-  #nixpkgs.config = {
-  #  packageOverrides = pkgs: with pkgs; {
-  #    unstable = import unstableTarball {
-  #      config = config.nixpkgs.config;
-  #    };
-  #    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-  #      inherit pkgs;
-  #    };
-  #  };
-  #};
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -172,24 +177,16 @@
      hwloc
      jack2
      pulseaudioFull
+     pamixer
+     brightnessctl
   #  media
      vlc
   #  browser
      firefox
   #  virtualisation
-     # pkgs.looking-glass-client
      virt-manager
      waydroid
-     #helix.packages."${pkgs.system}".helix 
   ];
-
-  #appimageTools.wrapType2 = { # or wrapType1
-  #  name = "Obsidian2";
-  #  src = fetchurl {
-  #    url = "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.4.16/Obsidian-1.4.16.AppImage";
-  #  };
-  #  extraPkgs = pkgs: with pkgs; [ ];
-  #};
 
   virtualisation.waydroid.enable = true;
 

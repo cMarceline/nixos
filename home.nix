@@ -7,11 +7,8 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      "source" = "/etc/nixos/hyprland.conf";
-      "exec-once" = "firefox & swww init";
-      bind = [
-        "$mainMod, F, exec, firefox"
-      ];
+      "source" = "/etc/nixos/dots/hyprland.conf";
+      "exec-once" = "firefox & swww init & waybar";
     };
   };
 
