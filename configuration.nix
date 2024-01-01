@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 # And for the past 10 years
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 {
   imports =
     [
@@ -118,17 +118,22 @@
         withOpenASAR = true;
         #withVencord = true;
       })
+      pkgs.vesktop
       pkgs.discord-canary
     # media
       spotify
       qbittorrent
-      obs-studio
       youtube-music
       steam
     # notes
       obsidian
-      #unstable.obsidian
       zotero 
+    # wine
+      wineWowPackages.stable 
+      winetricks
+    # gaming
+      pkgs.desmume
+      pkgs.jdk17
     ];
   };
 
