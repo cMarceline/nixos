@@ -8,15 +8,22 @@
     enable = true;
     settings = {
       "source" = "/etc/nixos/hyprland.conf";
-      "exec-once" = "waybar & firefox & swww init";
+      "exec-once" = "firefox & swww init";
       bind = [
         "$mainMod, F, exec, firefox"
       ];
     };
   };
 
+  programs.kitty = {
+    enable = true;
+    theme = "Catppuccin-Mocha";
+  };
+
   programs.waybar = {
     enable = true;
+    settings = {
+    };
   };
 
   # OBS Studio
