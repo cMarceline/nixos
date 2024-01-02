@@ -1,7 +1,6 @@
 { config, pkgs, ... }:{
   imports = [
-    ./desktopSoftConf.nix
-    ./desktopHardConf.nix
+    ./hardware-configuration.nix
     ./looking-glass.nix
     ./vfio.nix
   ];
