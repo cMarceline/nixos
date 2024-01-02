@@ -18,7 +18,7 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
-          ./desktopHardConf.nix
+          ./desktop
           ./looking-glass.nix
           ./vfio.nix
           ./hyprland.nix

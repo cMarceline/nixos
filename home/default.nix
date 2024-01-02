@@ -4,7 +4,7 @@
   home.stateVersion = "23.11";
 
   imports = [
-    /etc/nixos/home/waybar.nix
+    ./waybar.nix
   ];
 
   # hyprland
