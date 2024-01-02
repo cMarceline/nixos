@@ -158,12 +158,32 @@
     package = pkgs.mullvad-vpn;
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  # Enable Insecure Packages
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
-    "zotero-6.0.26"
   ];
+
+  # Enable unfree packages
+  /* nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "1password-gui"
+    "1password"
+    "1password-cli"
+    "vivaldi"
+    "discord"
+    "spotify"
+    "steam"
+    "steam-original"
+  ]; */
+  # Alternatively, you could also just allow all unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  programs._1password.enable = true;
+  programs._1password-gui = {
+    enable = true;
+    # Certain features, including CLI integration and system authentication support,
+    # require enabling PolKit integration on some desktop environments (e.g. Plasma).
+    polkitPolicyOwners = [ "mitchcollins12@gmail.com" ];
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

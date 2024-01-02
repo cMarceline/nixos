@@ -9,8 +9,9 @@
     nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, nur, ... }@inputs: {
-
+  outputs = { self, nixpkgs, home-manager, hyprland, nur, ... } @inputs: let
+    inherit (self) outputs;
+  in {
     nixosConfigurations = {
       "nixos" = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
@@ -20,24 +21,18 @@
           ./desktopHardConf.nix
           ./looking-glass.nix
           ./vfio.nix
-          ./onepass.nix
-          ./gnome.nix
+          ./hyprland.nix
 
-          # home manager module
-          home-manager.nixosModules.home-manager
-          {
+          home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
-            # TODO replace ryan with your own username
-            home-manager.users.marci = import ./home.nix;
-
+            home-manager.users.marci = import ./home;
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
           }
           # nur
           nur.nixosModules.nur
-           # This adds a nur configuration option.
-           # Use `config.nur` for packages
+           # This adds a nur configuration option. Use `config.nur` for packages
         ];
       };
 
@@ -47,7 +42,6 @@
           ./configuration.nix
           ./laptopSoftConf.nix
           ./laptopHardConf.nix
-          ./onepass.nix
           ./hyprland.nix
 
           # home manager module

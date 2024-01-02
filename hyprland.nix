@@ -27,8 +27,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    hyprland
-    kitty
     pkgs.libsForQt5.dolphin
   ];
 }
