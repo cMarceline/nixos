@@ -8,7 +8,7 @@
     enable = true;
     settings = {
       "source" = "/etc/nixos/dots/hyprland.conf";
-      "exec-once" = "firefox & swww init & waybar";
+      "exec-once" = "swww init & waybar & mullvad-gui";
     };
   };
 

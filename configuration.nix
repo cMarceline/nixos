@@ -134,10 +134,11 @@
         #withVencord = true;
       })
       pkgs.vesktop
-      pkgs.discord-canary
     # media
       spotify
+      spotifyd
       qbittorrent
+      mullvad-vpn
       youtube-music
       steam
     # notes
