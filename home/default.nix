@@ -11,6 +11,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
+      "monitor" = lib.mkDefault ",preferred,auto,1";
       "source" = "/etc/nixos/home/hyprland.conf";
       "exec-once" = "swww init & waybar & mullvad-gui";
     };
