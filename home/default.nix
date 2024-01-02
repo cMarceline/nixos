@@ -5,13 +5,14 @@
 
   imports = [
     ./waybar.nix
+    ./wofi.nix
   ];
 
   # hyprland
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      "monitor" = lib.mkDefault ",preferred,auto,1";
+      "monitor" = lib.mkDefault ",preferred,auto,1.25";
       "source" = "/etc/nixos/home/hyprland.conf";
       "exec-once" = "swww init & waybar & mullvad-gui";
     };

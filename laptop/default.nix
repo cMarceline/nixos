@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:{
 
   imports = [
-    ./hardConf
+    ./hardConf.nix
   ];
 
   boot.kernelParams = [ "mem_sleep_default=deep" ];
