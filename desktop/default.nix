@@ -1,6 +1,6 @@
 { config, pkgs, ... }:{
   imports = [
-    ./hardware-configuration.nix
+    ./hardconf.nix
     ./looking-glass.nix
     ./vfio.nix
   ];
