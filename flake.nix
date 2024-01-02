@@ -37,8 +37,7 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
-          ./laptopSoftConf.nix
-          ./laptopHardConf.nix
+          ./laptop
           ./hyprland.nix
 
           # home manager module

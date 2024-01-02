@@ -1,4 +1,9 @@
 { config, pkgs, lib, ... }:{
+
+  imports = [
+    ./hardConf
+  ];
+
   boot.kernelParams = [ "mem_sleep_default=deep" ];
 
   powerManagement = {
