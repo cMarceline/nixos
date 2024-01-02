@@ -19,8 +19,6 @@
         modules = [
           ./configuration.nix
           ./desktop
-          ./looking-glass.nix
-          ./vfio.nix
           ./hyprland.nix
 
           home-manager.nixosModules.home-manager {
