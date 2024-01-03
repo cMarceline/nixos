@@ -125,14 +125,9 @@
     # sysSet
       protonvpn-gui
       #config.nur.repos.emmanuelrosa.bisq-desktop
-      #pkgs.geogebra
     # messaging
       whatsapp-for-linux
-      (pkgs.discord.override {
-        # remove any overrides that you don't want
-        withOpenASAR = true;
-        #withVencord = true;
-      })
+      (pkgs.discord.override { withOpenASAR = true; /*withVencord = true;*/ })
       pkgs.vesktop
     # media
       spotify
