@@ -32,7 +32,6 @@
   };
 
   home.packages = [
-    pkgs.wofi
     pkgs.dunst
   ];
 }
