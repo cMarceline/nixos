@@ -56,6 +56,7 @@
       #battery,
       #backlight,
       #pulseaudio,
+      #bluetooth,
       #network,
       #clock,
       #tray {
@@ -109,7 +110,9 @@
       #backlight {
         background-color: #fab387;
       }
-
+      #bluetooth {
+        background-color: #f9e2af;
+      }
       #pulseaudio {
         background-color: #f9e2af;
       }
@@ -147,7 +150,7 @@
         "height" = 34;
         "modules-left" = [  "custom/logo"  "hyprland/workspaces"  ];
         "modules-center" =  [  "clock"  ];
-        "modules-right" = [  "tray"  "memory"  "network"  "pulseaudio"  "battery"  "custom/power"  ];
+        "modules-right" = [  "tray"  "memory"  "network"  "pulseaudio" "bluetooth" "battery"  "custom/power"  ];
         "wlr/taskbar" = {
           "format" = "{icon}";
           "on-click" = "activate";
@@ -202,7 +205,7 @@
           "tooltip-format-wifi" = "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}";
           "tooltip-format-ethernet" = "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}";
           "tooltip-format-disconnected" = "Disconnected";
-          "on-click" = "~/.config/rofi/wifi/wifi.sh &";
+          "on-click" = "/etc/nixos/home/wofi-wifi.sh &";
           "on-click-right" = "~/.config/rofi/wifi/wifinew.sh &";
           "interval" = 5;
           "nospacing" = 1;
@@ -217,13 +220,22 @@
             "headphone" = "";
             "default" = ["󰖀" "󰕾" ""];
           };
-          "on-click" = "pamixer -t";
+          "on-click-right" = "pamixer -t";
+          "on-click" = "python /etc/nixos/home/audio_changer.py";
           "scroll-step" = 1;
+        };
+        "bluetooth" = {
+          "format" = "{icon}";
+          "format-icons" = {
+            "enabled" = "";
+            "disabled" = "";
+          };
+          "on-click" = "/etc/nixos/home/wofi-bluetooth";
         };
         "custom/logo" = {
           "format" = " ";
           "tooltip" = false;
-          "on-click" = "~/.config/rofi/launchers/misc/launcher.sh &";
+          "on-click" = "wofi &";
         };
         "battery" = {
           "format" = "{capacity}% {icon}";
@@ -242,7 +254,7 @@
         "custom/power" = {
           "format" = "󰤆";
           "tooltip" = false;
-          "on-click" = "~/.config/rofi/powermenu/type-2/powermenu.sh &";
+          "on-click" = "/etc/nixos/home/power-script.sh &";
         };
       };
     };

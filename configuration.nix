@@ -153,6 +153,12 @@
     package = pkgs.mullvad-vpn;
   };
 
+  security.pam.services.swaylock = {
+    text = ''
+      auth include login
+    '';
+  };
+
   # Enable Insecure Packages
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
@@ -186,6 +192,7 @@
      hyprland
      kitty
      swww
+     swaylock
   #  syset
      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      qjackctl
@@ -200,6 +207,7 @@
      pulseaudioFull
      pamixer
      brightnessctl
+     python311
   #  media
      vlc
   #  browser

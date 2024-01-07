@@ -18,8 +18,8 @@
   ];
   
   environment.systemPackages = [
-     pkgs.persistent-evdev
-     pkgs.looking-glass-client
+     #pkgs.persistent-evdev
+     #pkgs.looking-glass-client
      #pkgs.haskellPackages.evdev
      pkgs.libvirt
      pkgs.qemu
@@ -35,9 +35,10 @@
 
   systemd.tmpfiles.rules = [
     "f /dev/shm/looking-glass 0660 marci qemu-libvirtd -"
-    "f /dev/input/by-id/usb-05d5_KEYBOARD-event-if01 0660 marci qemu-libvirtd -"
-    "f /dev/input/by-id/usb-05d5_KEYBOARD-event-kbd 0660 marci qemu-wlibvirtd -"
-    "f /dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse 0660 marci qemu-wlibvirtd -"
+    "f /dev/input/by-id/usb-Keychron_Keychron_C1-event-kbd 0660 marci qemu-libvirtd -"
+    "f /dev/input/by-id/usb-Keychron_Keychron_C1-if01-event-mouse 0660 marci qemu-libvirtd -"
+    "f /dev/input/by-id/usb-Keychron_Keychron_C1-if01-mouse 0660 marci qemu-libvirtd -"
+    "f /dev/input/by-id/usb-Logitech_USB_Receiver-if02-mouse 0660 marci qemu-libvirtd -"
   ];
 
   virtualisation = {
@@ -45,7 +46,8 @@
       enable = true;
       qemuOvmf = true;
       qemuRunAsRoot = false;
-      
+
+      #onBoot = "start";
       onBoot = "ignore";
       onShutdown = "shutdown";
       
@@ -55,9 +57,10 @@
           "/dev/random", "/dev/urandom",
           "/dev/ptmx", "/dev/kvm", "/dev/kqemu",
           "/dev/rtc","/dev/hpet",
-          "/dev/input/by-id/usb-05d5_KEYBOARD-event-if01",
-          "/dev/input/by-id/usb-05d5_KEYBOARD-event-kbd",
-          "/dev/input/by-id/usb-Logitech_USB_Receiver-if02-event-mouse"
+          "/dev/input/by-id/usb-Keychron_Keychron_C1-event-kbd",
+          "/dev/input/by-id/usb-Keychron_Keychron_C1-if01-event-mouse",
+          "/dev/input/by-id/usb-Keychron_Keychron_C1-if01-mouse",
+          "/dev/input/by-id/usb-Logitech_USB_Receiver-if02-mouse"
         ]
       '';
     };
