@@ -4,17 +4,10 @@
 # And for the past 10 years
 { config, pkgs, lib, inputs, ... }:
 {
-  imports =
-    [
-      #/etc/nixos/device/device.nix
-      #/etc/nixos/dewm/dewm.nix
-      #/etc/nixos/onepass.nix
-      #/etc/nixos/home.nix
-      #/etc/nixos/hardware-configuration.nix
-    ];
+  imports = [];
 
   # options.vfio.enable = with lib; mkEnableOption;
-  # Bootloader.
+  # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -162,6 +155,8 @@
   # Enable Insecure Packages
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
+    "electron"
+    "electron-24.8.6"
   ];
 
   # Enable unfree packages
